@@ -56,6 +56,17 @@ scene("game", ({level, score}) => {
       ')  }     )',
       'a        b',
       'xddddddddz',
+    ],
+    [
+      'yccccccccw',
+      'a       $b',
+      ')  }     )',
+      'a      } xw',
+      'a  (     (b',
+      'a     (  yz',
+      ')   *    )',
+      'a        b',
+      'xddddddddz',
     ]
   ]
 
@@ -76,7 +87,7 @@ scene("game", ({level, score}) => {
     '*': [sprite('slicer'), 'slicer', { dir: -1 }, 'dangerous'],
     '}': [sprite('skeletor'), 'dangerous', 'skeletor', { dir: -1, timer: 0 }],
     ')': [sprite('lanterns'), solid()],
-    '(': [sprite('fire-pot'), solid()],
+    '(': [sprite('fire-pot'), solid(), 'wall'],
     
 
   }
@@ -114,6 +125,8 @@ scene("game", ({level, score}) => {
       score: scoreLabel.value
     })
   })
+
+  //Player Movement
 
   keyDown('left', () => {
     player.changeSprite('link-going-left')
@@ -163,6 +176,8 @@ scene("game", ({level, score}) => {
     scoreLabel.value++
     scoreLabel.text = scoreLabel.value
   })
+
+  //
 
   const SLICER_SPEED = 100
 
